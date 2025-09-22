@@ -37,7 +37,7 @@ body {
   /* align-items: center; */
   gap: 20px;
   background-color: white;
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 7px;
   box-shadow: 10px 10px 10px grey;
   max-width: 600px;
@@ -108,4 +108,13 @@ textarea {
 .assistantResponse {
   display: flex;
   gap: 25px;
+}
+
+.additional-tests textarea, .answer textarea {
+  resize: none;
+  background-color: rgb(244, 242, 242);
+}
+
+.answer textarea {
+  height: 75%;
 }
