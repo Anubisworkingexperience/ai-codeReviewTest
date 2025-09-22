@@ -11,7 +11,7 @@ function App() {
   const [lintOutput, setLintOutput] = useState('');
   const [mode] = useState<'standard' | 'lint_and_tests'>('standard');
 
-  const mockOpenaiChatCompletionsCreate = ({ model, messages }: {model: string, messages: ChatMessage[]}) => {
+  const mockOpenaiChatCompletionsCreate = ({ model, messages}: {model: string, messages: ChatMessage[]}) => {
     if (mode === 'standard') {
       return {
         choices: [
@@ -62,7 +62,7 @@ function App() {
     setLintOutput('');
     setTestOutput('');
 
-    const messages = [
+    const messages : ChatMessage[] = [
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: `Please review the following code: \n\n${code}` },
     ];

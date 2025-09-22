@@ -17,10 +17,8 @@ describe('Code Review App (mock)', () => {
     fireEvent.click(sendButton);
 
     await waitFor(() =>
-      expect(screen.getByLabelText(/Ответ ассистента/i)).toHaveValue(
-        expect.stringContaining('Code Review Summary')
-      )
-    );
+      expect((screen.getByLabelText(/Ответ ассистента/i) as HTMLTextAreaElement).value)
+    .toContain('Code Review Summary'));
   });
 
   it('runs ESLint mock and displays results', () => {
@@ -31,9 +29,9 @@ describe('Code Review App (mock)', () => {
     const lintButton = screen.getByRole('button', { name: /Запустить ESLint/i });
     fireEvent.click(lintButton);
 
-    expect(screen.getByLabelText(/ESLint \(mock\)/i)).toHaveValue(
-      expect.stringContaining('ESLint found:')
-    );
+    
+    expect((screen.getByLabelText(/ESLint \(mock\)/i) as HTMLTextAreaElement).value)
+    .toContain('ESLint found:');
   });
 
   it('runs Tests mock and displays results', () => {
@@ -44,8 +42,7 @@ describe('Code Review App (mock)', () => {
     const testsButton = screen.getByRole('button', { name: /Запустить Тесты/i });
     fireEvent.click(testsButton);
 
-    expect(screen.getByLabelText(/Тесты \(mock\)/i)).toHaveValue(
-      expect.stringContaining('passed')
-    );
+    expect((screen.getByLabelText(/Тесты \(mock\)/i) as HTMLTextAreaElement).value)
+    .toContain('passed');
   });
 });
